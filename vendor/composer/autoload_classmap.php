@@ -9,13 +9,9 @@ return array(
     'AdvisorsTableSeeder' => $baseDir . '/database/seeds/AdvisorsTableSeeder.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-<<<<<<< HEAD
-    'App\\Http\\Controllers\\Api\\Students\\UserController' => $baseDir . '/app/Http/Controllers/Api/Students/UserController.php',
-=======
     'App\\Http\\Controllers\\Api\\Students\\StudentController' => $baseDir . '/app/Http/Controllers/Api/Students/StudentController.php',
     'App\\Http\\Controllers\\Api\\Students\\UserController' => $baseDir . '/app/Http/Controllers/Api/Students/UserController.php',
     'App\\Http\\Controllers\\Api\\Users\\AuthController' => $baseDir . '/app/Http/Controllers/Api/Users/AuthController.php',
->>>>>>> bc0dc32cc505453d5c9c831bf21744d9a6f140c6
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -4017,6 +4013,7 @@ return array(
     'Symfony\\Component\\Finder\\Exception\\AccessDeniedException' => $vendorDir . '/symfony/finder/Exception/AccessDeniedException.php',
     'Symfony\\Component\\Finder\\Exception\\DirectoryNotFoundException' => $vendorDir . '/symfony/finder/Exception/DirectoryNotFoundException.php',
     'Symfony\\Component\\Finder\\Finder' => $vendorDir . '/symfony/finder/Finder.php',
+    'Symfony\\Component\\Finder\\Gitignore' => $vendorDir . '/symfony/finder/Gitignore.php',
     'Symfony\\Component\\Finder\\Glob' => $vendorDir . '/symfony/finder/Glob.php',
     'Symfony\\Component\\Finder\\Iterator\\CustomFilterIterator' => $vendorDir . '/symfony/finder/Iterator/CustomFilterIterator.php',
     'Symfony\\Component\\Finder\\Iterator\\DateRangeFilterIterator' => $vendorDir . '/symfony/finder/Iterator/DateRangeFilterIterator.php',
@@ -4569,10 +4566,7 @@ return array(
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
-<<<<<<< HEAD
     'UserSeeder' => $baseDir . '/database/seeds/UserSeeder.php',
-=======
->>>>>>> bc0dc32cc505453d5c9c831bf21744d9a6f140c6
     'UsersTableSeeder' => $baseDir . '/database/seeds/UsersTableSeeder.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
