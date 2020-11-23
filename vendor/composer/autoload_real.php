@@ -23,8 +23,11 @@ class ComposerAutoloaderInit688811c1518cd5e567222b6b4a59cf1a
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         spl_autoload_register(array('ComposerAutoloaderInit688811c1518cd5e567222b6b4a59cf1a', 'loadClassLoader'), true, true);
 =======
+=======
+>>>>>>> ed08f7556e02cae2425eaef1bf7f0578014681b5
         require __DIR__ . '/platform_check.php';
 
         spl_autoload_register(array('ComposerAutoloaderInit6c0a4ebfbbba320e35315122d0808502', 'loadClassLoader'), true, true);

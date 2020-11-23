@@ -13,5 +13,9 @@ use App\Models\User;
 class StudentController extends Controller
 {
 
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> ed08f7556e02cae2425eaef1bf7f0578014681b5
 }

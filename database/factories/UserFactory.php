@@ -32,7 +32,11 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
+<<<<<<< HEAD
         'user_type' => $faker->randomElement(['student', 'teacher', 'student', 'student']),
+=======
+        'user_type' => $faker->randomElement(['student', 'teacher', 'student']),
+>>>>>>> ed08f7556e02cae2425eaef1bf7f0578014681b5
         'phone_number' => Str::random(10),
         'email' => $faker->unique()->safeEmail,
         'email_verified' => 1,
