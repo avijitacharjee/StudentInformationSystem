@@ -13,6 +13,7 @@ use App\Models\Student;
 
 class AuthController extends Controller
 {
+
     public function register(Request $request)
     {
 
@@ -50,7 +51,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
             'email_verification_token' => $request->email.Str::random(55),
             'picture_path' => $image_path,
-            'status' => 'inactive',
+            'status' => '0',
         ]);
 
         $student = Student::create([
@@ -123,6 +124,37 @@ class AuthController extends Controller
             ],
             'message'=>'successfully retrieved'
         ]);
+
+    }
+
+    /**
+     * Email Verification
+     * @return json
+     */
+    public function verifyEmail($token = null){
+
+        if ($token == null){
+            return response()->json([
+                'message'=>'Invalid Token'
+            ]);
+        }
+
+        $user = User::where('email_verification_token', $token)->first();
+        if($user == null){
+            return response()->json([
+                'message'=>'Invalid Token'
+            ]);
+
+        }
+
+        $user->update([
+            'email_verified' => 1,
+            'email_verified_at' => \Carbon\Carbon::now(),
+            'email_verification_token' => '',
+        ]);
+        return response()->json([
+                'message'=>'Your account is activated. You can login now.',
+            ]);
 
     }
 }
