@@ -27,10 +27,10 @@ Route::get('verify/{token}', 'Api\Students\AuthController@verifyEmail')->name('v
 // Teacher  Panel
 Route::group(['prefix' => 'teacher', 'middleware' => 'auth:api'], function () {
 
-    Route::get('/', 'Api\Students\HomePageController@posts'); // all post / home page
+    Route::get('/', 'Api\Teachers\TeacherController@posts'); // all post / home page
 
-    Route::get('/profile', 'api\Students\ProfileController@profile');
-    Route::post('/profile/update', 'api\Students\ProfileController@update');
+    Route::get('/profile', 'Api\Teachers\TeacherControllerr@profile');
+    Route::post('/profile/update', ' Api\Teachers\TeacherController@update');
 
     Route::post('/post/create', 'Api\PostController@create');
     Route::get('/post/my-post', 'Api\PostController@myPost');
@@ -42,4 +42,4 @@ Route::group(['prefix' => 'teacher', 'middleware' => 'auth:api'], function () {
 
 
 
-//user login
+
