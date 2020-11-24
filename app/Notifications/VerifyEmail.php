@@ -44,10 +44,10 @@ class VerifyEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Dear '. $this->user->name)
-                    ->line('Your account has been created successfully! Please verify your account to login.')
-                    ->action('Click to Verify Your Account', url('api/verify/'.$this->user->email_verification_token))
-                    ->line('Thank you for using our application!');
+            ->line('Dear ' . $this->user->name)
+            ->line('Your account has been created successfully! Please verify your account to login.')
+            ->action('Click to Verify Your Account', url('api/verify/' . $this->user->email_verification_token))
+            ->line('Thank you for using our application!');
     }
 
     /**

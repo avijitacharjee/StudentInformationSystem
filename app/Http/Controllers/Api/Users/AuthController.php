@@ -51,7 +51,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
             'email_verification_token' => $request->email.Str::random(55),
             'picture_path' => $image_path,
-            'status' => '0',
+            'status' => 'inactive',
         ]);
 
         $student = Student::create([
