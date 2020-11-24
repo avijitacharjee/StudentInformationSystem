@@ -14,15 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user()->id;
+});
 
 Route::post('/register','Api\Users\AuthController@register');
 Route::post('/login','Api\Users\AuthController@login');
 <<<<<<< HEAD
 Route::get('/verify/{token}', 'Api\Users\AuthController@verifyEmail')->name('verify');
 
+<<<<<<< HEAD
 // Admin Panel
 Route::group(['prefix'=>'admin'], function(){
 
@@ -63,7 +64,26 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth:api'], function(){
 	Route::get('/course/{id}', 'api\Admins\CourseController@show');
 	Route::get('/course/{id}/delete', 'api\Admins\CourseController@destroy');
 	Route::post('/course/{id}/update', 'api\Admins\CourseController@update');
+=======
+>>>>>>> 4e9d0b920b6731dc92a886c7bc6c99c3b0aad0b9
 
+
+// Student Panel
+Route::group(['prefix'=>'student', 'middleware'=>'auth:api'], function(){
+	
+	Route::get('/', 'Api\Students\HomePageController@posts'); // all post / home page
+
+	Route::get('/profile', 'api\Students\ProfileController@profile');
+	Route::post('/profile/update', 'api\Students\ProfileController@update');
+
+	Route::post('/post/create', 'Api\PostController@create');
+	Route::get('/post/my-post', 'Api\PostController@myPost');
+	Route::get('/post/{id}', 'Api\PostController@show');
+	Route::post('/post/{id}/update', 'Api\PostController@update');
+	Route::get('/post/{id}/delete', 'Api\PostController@destroy');
 });
+<<<<<<< HEAD
 //user login 
 >>>>>>> ed08f7556e02cae2425eaef1bf7f0578014681b5
+=======
+>>>>>>> 4e9d0b920b6731dc92a886c7bc6c99c3b0aad0b9
