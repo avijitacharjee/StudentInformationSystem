@@ -9,7 +9,6 @@ use App\Models\Post;
 use App\Models\PostFor;
 use App\Models\Admin;
 use App\Models\User; 
-use App\Models\User;
 
 class PostController extends Controller
 {

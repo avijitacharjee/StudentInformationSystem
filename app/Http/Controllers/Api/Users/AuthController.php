@@ -155,6 +155,5 @@ class AuthController extends Controller
         return response()->json([
                 'message'=>'Your account is activated. You can login now.',
             ]);
-
     }
 }
