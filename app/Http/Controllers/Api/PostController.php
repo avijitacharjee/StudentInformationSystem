@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admins;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ class PostController extends Controller
      * @return json
      */
     public function myPost(Request $request){
-    	$user_id = $request->user()->id;  // test
+    	$user_id = $request->user()->id;
     	$posts = Post::where('user_id', $user_id)->with('post_for')->get();
 
     	return response()->json([
@@ -55,7 +55,7 @@ class PostController extends Controller
      * Create post
      * @return json
      */
-    public function createPost(Request $request){
+    public function create(Request $request){
     	$validator = Validator::make($request->all(), [
             'content' => 'required',
         ]);
@@ -80,6 +80,8 @@ class PostController extends Controller
         	'all' => $request->all,
         	'student' => $request->student,
         	'teacher' => $request->teacher,
+        	'batch' => $request->batch,
+        	'semester' => $request->semester,
         ]);
 
         return response()->json([
@@ -116,8 +118,10 @@ class PostController extends Controller
         	'student' => $request->student,
         	'teacher' => $request->teacher,
         ]);
+
+        $post = Post::with('post_for')->find($post->id);
         return response()->json([
-    		'data' => Post::with('post_for')->find($post->id),
+    		'data' => $post,
     		'error' => 'false',
     	]);
     }

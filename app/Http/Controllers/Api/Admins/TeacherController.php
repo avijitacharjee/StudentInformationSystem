@@ -15,7 +15,7 @@ class TeacherController extends Controller
 {
     /**
      * Teachers list
-     * @return json
+     * @return json 
      */
     public function index(){
     	$data = Teacher::with('user')->get();
@@ -66,7 +66,7 @@ class TeacherController extends Controller
             'password' => bcrypt($request->password),
             'email_verification_token' => $request->email.Str::random(55),
             'picture_path' => $image_path,
-            'status' => 'active',
+            'status' => '1',
         ]);
 
         if($user){

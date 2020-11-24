@@ -16,12 +16,8 @@ class Post extends Model
         'content',
         'status',
     ];
-<<<<<<< HEAD
-=======
-
 
     public function post_for(){
         return $this->hasOne('App\Models\PostFor');
     }
->>>>>>> ed08f7556e02cae2425eaef1bf7f0578014681b5
 }

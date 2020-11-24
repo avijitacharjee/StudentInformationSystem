@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user()->id;
+});
 
 Route::post('/register','Api\Users\AuthController@register');
 Route::post('/login','Api\Users\AuthController@login');
-Route::get('verify/{token}', 'Api\Students\AuthController@verifyEmail')->name('verify');
+
+Route::get('/verify/{token}', 'Api\Users\AuthController@verifyEmail')->name('verify');
 
 Route::get('/teachers', 'Api\Admins\TeacherController@index');
 Route::post('/teacher/create', 'Api\Admins\TeacherController@addTeacher');
@@ -46,3 +47,20 @@ Route::get('/course/{id}', 'api\Admins\CourseController@show');
 Route::get('/course/{id}/delete', 'api\Admins\CourseController@destroy');
 Route::post('/course/{id}/update', 'api\Admins\CourseController@update');
 
+// Student Panel
+
+Route::get('/', 'Api\Students\HomePageController@posts'); // all post / home page
+
+Route::get('/profile', 'api\Students\ProfileController@profile');
+Route::post('/profile/update', 'api\Students\ProfileController@update');
+
+Route::post('/post/create', 'Api\PostController@create');
+Route::get('/post/my-post', 'Api\PostController@myPost');
+Route::get('/post/{id}', 'Api\PostController@show');
+Route::post('/post/{id}/update', 'Api\PostController@update');
+Route::get('/post/{id}/delete', 'Api\PostController@destroy');
+
+//Enrollment
+Route::get('/get-courses', 'Api\Students\EnrollmentController@courses'); //course list
+Route::post('/enroll', 'Api\Students\EnrollmentController@studentEnroll');
+Route::get('/my-courses', 'Api\Students\EnrollmentController@myCourses');
