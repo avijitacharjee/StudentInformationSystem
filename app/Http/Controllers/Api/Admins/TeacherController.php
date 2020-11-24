@@ -33,7 +33,6 @@ class TeacherController extends Controller
     public function addTeacher(Request $request){
 
     	$validator = Validator::make($request->all(), [
-            'teacher_id' => 'required|numeric|digits:9|unique:teachers',
             'name' => 'required|max:55',
             'department' => 'required',
 
