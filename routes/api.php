@@ -60,7 +60,16 @@ Route::get('/post/{id}', 'Api\PostController@show');
 Route::post('/post/{id}/update', 'Api\PostController@update');
 Route::get('/post/{id}/delete', 'Api\PostController@destroy');
 
-//Enrollment
-Route::get('/get-courses', 'Api\Students\EnrollmentController@courses'); //course list
-Route::post('/enroll', 'Api\Students\EnrollmentController@studentEnroll');
-Route::get('/my-courses', 'Api\Students\EnrollmentController@myCourses');
+	//Enrollment
+	Route::get('/get-courses', 'Api\Students\EnrollmentController@courses'); //course list
+	Route::post('/enroll', 'Api\Students\EnrollmentController@studentEnroll');
+	Route::get('/my-courses', 'Api\Students\EnrollmentController@myCourses');
+
+
+	Route::get('/student-list', 'Api\Advisors\AdvisorController@studentList'); // under adviosr
+
+	Route::get('/enroll-requests', 'Api\Advisors\AdvisorController@enrollRequests');
+	Route::get('/enroll-request/{id}/subjects',
+				'Api\Advisors\AdvisorController@requestedSubject'); //id=student.id
+	Route::get('/enroll-request/{id}/approve', 'Api\Advisors\AdvisorController@approve') ;//id=student.id
+
