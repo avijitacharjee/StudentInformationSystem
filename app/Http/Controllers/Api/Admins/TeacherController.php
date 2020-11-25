@@ -35,10 +35,9 @@ class TeacherController extends Controller
     	$validator = Validator::make($request->all(), [
             'name' => 'required|max:55',
             'department' => 'required',
-
             'phone_number' => 'required|max:15|min:11|unique:users',
             'email' => 'email|required|unique:users',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required',
             'image' => 'image|max:2048',
         ]);
 
