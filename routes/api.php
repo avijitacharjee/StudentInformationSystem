@@ -69,7 +69,7 @@ Route::get('/post/{id}/delete', 'Api\PostController@destroy');
 
 	Route::get('/student-list', 'Api\Advisors\AdvisorController@studentList'); // under adviosr
 	//Route::get('enroll-requests','Api\Advisors\AdvisorController@enrollRequestForAdvisor');
-	Route::get('/enroll-requests/{user_id}', 'Api\Advisors\AdvisorController@enrollRequests'); //user id of advisor
+	Route::get('/enroll-requests', 'Api\Advisors\AdvisorController@enrollRequests'); //user id of advisor
 	Route::get('/enroll-request/{id}/subjects',
 				'Api\Advisors\AdvisorController@requestedSubject'); //id=student.id
 	Route::get('/enroll-request/{id}/approve', 'Api\Advisors\AdvisorController@approve') ;//id=student.id

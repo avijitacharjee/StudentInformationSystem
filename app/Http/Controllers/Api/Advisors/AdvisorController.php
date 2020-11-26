@@ -36,24 +36,32 @@ class AdvisorController extends Controller
      * Enroll request
      * @return json 
      */
-    public function enrollRequests(Request $request,$user_id){
-    	$userId = $user_id;
-    	$teacher_id = Teacher::where('user_id', $userId)->first()->id;
-    	$advisor_id = Advisor::where('teacher_id', $teacher_id)->first()->id;
+    // public function enrollRequests(Request $request,$user_id){
+    // 	$userId = $user_id;
+    // 	$teacher_id = Teacher::where('user_id', $userId)->first()->id;
+    // 	$advisor_id = Advisor::where('teacher_id', $teacher_id)->first()->id;
 
-    	$enrollRequests = StudentsEnroll::leftjoin('students', 'students.id', 'students_enrolls.student_id')
-    									->select('students.id', 'students.user_id', 'students.student_id', 'students.name')
-    									->where('advisor_id', $advisor_id)
-    									->where('status', 0)
-    									->distinct()
-    									->get();
+    // 	$enrollRequests = StudentsEnroll::leftjoin('students', 'students.id', 'students_enrolls.student_id')
+    // 									->select('students.id', 'students.user_id', 'students.student_id', 'students.name')
+    // 									->where('advisor_id', $advisor_id)
+    // 									->where('status', 0)
+    // 									->distinct()
+    // 									->get();
 
+    // 	return response()->json([
+    // 		'data' => $enrollRequests,
+    // 		'error' => 'false',
+    // 	]);
+    // }
+
+	public function enrollRequests(Request $request){
+    	
+    	$enrollRequests = StudentsEnroll::join('students', 'students.id', 'students_enrolls.student_id')->join('courses', 'courses.id', '=', 'students_enrolls.course_id')->get();
     	return response()->json([
     		'data' => $enrollRequests,
     		'error' => 'false',
     	]);
     }
-
     /**
      * list of requested subject
      * @return json 
