@@ -68,9 +68,9 @@ class PostController extends Controller
             ]);
         }
 
-        $user_id = $request->user()->id;
+        $userId = $request->user_id;
         $post = Post::create([
-            'user_id' => $user_id,		// test
+            'user_id' => $userId,		// test
         	'content' => $request->content,
             'status' => '1',
         ]);

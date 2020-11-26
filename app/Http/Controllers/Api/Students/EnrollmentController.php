@@ -56,18 +56,20 @@ class EnrollmentController extends Controller
                 'error' => 'true',
             ]);
         }
-
-        $user_id = $request->user()->id;
-        $enroll = StudentsEnroll::create([
-        	'student_id' => Student::select('id')->where('user_id', $user_id)->first()->id,
-        	'course_id' => $request->course_id,
-        	'session' => $request->session,
-        	'semester' => $request->semester,
-        	'status' => 0,
-        ]);
-
+        $courseIds = explode(",",$request->course_id);
+        $enrolls = array();
+        foreach( $courseIds as $courseId){
+            $enroll = StudentsEnroll::create([
+                'student_id' => $request->user_id,
+                'course_id' => $courseId,
+                'session' => $request->session,
+                'semester' => $request->semester,
+                'status' => 0,
+            ]);
+            array_push($enrolls,$enroll);
+        }
         return response()->json([
-            'data'=> $enroll,
+            'data'=> $enrolls,
             'error' => 'false',
         ]);
     }

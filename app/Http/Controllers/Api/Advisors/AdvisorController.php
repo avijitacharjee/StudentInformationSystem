@@ -36,9 +36,9 @@ class AdvisorController extends Controller
      * Enroll request
      * @return json 
      */
-    public function enrollRequests(Request $request){
-    	$user_id = $request->user()->id;
-    	$teacher_id = Teacher::where('user_id', $user_id)->first()->id;
+    public function enrollRequests(Request $request,$user_id){
+    	$userId = $user_id;
+    	$teacher_id = Teacher::where('user_id', $userId)->first()->id;
     	$advisor_id = Advisor::where('teacher_id', $teacher_id)->first()->id;
 
     	$enrollRequests = StudentsEnroll::leftjoin('students', 'students.id', 'students_enrolls.student_id')
